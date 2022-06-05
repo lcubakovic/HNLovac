@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">HNLovac</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="live">UŽIVO</string>
+    <string name="fixtures">RASPORED</string>
+    <string name="standings">TABLICA</string>
+    <string name="signin">REGISTRACIJA</string>
+    <string name="nav_login">PRIJAVA</string>
+    <string name="nav_profile">PROFIL</string>
+    <string name="nav_home">UŽIVO</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="welcome">Dobrodošli!</string>
+    <string name="login_acc">Logirajte se u vaš račun</string>
+    <string name="reg_acc">Registrirajte novi račun</string>
+    <string name="firstname_acc">Unesite ime</string>
+    <string name="lastname_acc">Unesite prezime</string>
+    <string name="email_acc">Unesite vaš email</string>
+    <string name="password_acc">Unesite vašu lozinku</string>
+    <string name="register_acc">Nemate korisnički račun? Registrirajte se!</string>
+    <string name="alreadyHave_acc">Već imate korisnički račun? Logirajte se ovdje!</string>
+    <string name="logged_in">Uspješno ste autentificirani kao:</string>
+    <string name="logout">ODJAVA</string>
+    <string name="forgot_pass">Zaboravili ste lozinku?</string>
+    <string name="hnlovac">HNLovac</string>
+    <string name="activity">AKTIVNOST</string>
+    <string name="submit">PODNESI</string>
+    <string name="oporavak">Ispod unesite email adresu za oporovak</string>
+    <string name="options">OPCIJE</string>
+</resources>

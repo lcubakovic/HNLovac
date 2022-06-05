@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "621063498486",
+    "project_id": "hnlovac",
+    "storage_bucket": "hnlovac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621063498486:android:23f1b270af0f77db969ad7",
+        "android_client_info": {
+          "package_name": "cubakoviclv1.ferit.hnlovac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621063498486-uf7l8ine92k6crlh653ob2tc0d7ahanr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cubakoviclv1.ferit.hnlovac",
+            "certificate_hash": "1543b73e5cbad1358fa0be76cdb486a00645579b"
+          }
+        },
+        {
+          "client_id": "621063498486-6ffs7h65rf9k7d38aalvqv0u9ud8qitj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI6sVZ8NBhD6VJMH7RG4uMsY9qe0SJXwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621063498486-6ffs7h65rf9k7d38aalvqv0u9ud8qitj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
