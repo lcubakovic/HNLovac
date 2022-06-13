@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="7dp"
+    >
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1"
+        android:id="@+id/table123">
+        <TableRow>
+            <TextView
+                android:text="Name"
+                android:id="@+id/team_title">
+            </TextView>
+            <TextView android:text="P "
+                android:gravity="right"
+                android:id="@+id/team_played">
+            </TextView>
+            <TextView android:text="W"
+                android:id="@+id/team_won">
+            </TextView>
+            <TextView android:text="D"
+                android:id="@+id/team_drawn">
+            </TextView>
+            <TextView android:text="L"
+                android:id="@+id/team_lost">
+            </TextView>
+            <TextView android:text="P"
+                android:id="@+id/team_points">
+            </TextView>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:padding="2dp"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/item_played"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="2dp"
+                android:textSize="13sp" />
+            <TextView
+                android:id="@+id/item_won"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textSize="13sp" />
+            <TextView
+                android:id="@+id/item_drawn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textSize="13sp" />
+            <TextView
+                android:id="@+id/item_lost"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textSize="13sp" />
+            <TextView
+                android:id="@+id/item_points"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textSize="13sp" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

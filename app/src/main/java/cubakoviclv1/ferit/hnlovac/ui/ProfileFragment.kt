@@ -16,7 +16,6 @@ import com.google.firebase.database.*
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.auth.User
-import com.google.firebase.firestore.ktx.getField
 import cubakoviclv1.ferit.hnlovac.R
 import cubakoviclv1.ferit.hnlovac.db.LogInFragment
 import cubakoviclv1.ferit.hnlovac.db.UserData

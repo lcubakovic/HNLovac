@@ -2,24 +2,24 @@ package cubakoviclv1.ferit.hnlovac.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
-import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.bumptech.glide.Glide
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.navigation.NavigationView
 import cubakoviclv1.ferit.hnlovac.R
+import cubakoviclv1.ferit.hnlovac.StandingsAdapter
 import cubakoviclv1.ferit.hnlovac.db.LogInFragment
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import cubakoviclv1.ferit.hnlovac.api.ApiInterface
+import cubakoviclv1.ferit.hnlovac.api.ApiUtilites
+import cubakoviclv1.ferit.hnlovac.api.Api_inf
 import cubakoviclv1.ferit.hnlovac.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,15 +28,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: ActivityMainBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         drawerLayout = findViewById(R.id.drawerLayout)
         navView = findViewById(R.id.navView)
-
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close)
         drawerLayout.addDrawerListener(toggle)
@@ -60,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
 
     }
 
