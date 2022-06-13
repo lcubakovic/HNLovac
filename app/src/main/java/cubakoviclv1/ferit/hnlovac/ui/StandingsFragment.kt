@@ -24,7 +24,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mikepenz.fastadapter.dsl.genericFastAdapter
 import cubakoviclv1.ferit.hnlovac.StandingsAdapter
 import cubakoviclv1.ferit.hnlovac.databinding.FragmentStandingsBinding
-import cubakoviclv1.ferit.hnlovac.databinding.ItemLayoutBinding
 import cubakoviclv1.ferit.hnlovac.model.DataX
 import cubakoviclv1.ferit.hnlovac.model.Standing
 import kotlinx.coroutines.channels.consumesAll
@@ -56,12 +55,13 @@ class StandingsFragment : Fragment() {
         lifecycleScope.launch (Dispatchers.IO) {
 
             val result = standingsApi.getStandings(Api_inf.API_KEY, Api_inf.SEASON_ID)
+            val teams = standingsApi.getTeams(Api_inf.API_KEY, Api_inf.COUNTRY_ID)
 
             if (result.body() != null) {
                 Log.d("standings", "onCreate: ${result.body()!!.data.standings}" )
 
                 withContext(Dispatchers.Main) {
-                    binding.recyclerView.adapter = StandingsAdapter(requireActivity(),result.body()!!.data.standings)
+                    binding.recyclerView.adapter = StandingsAdapter(requireActivity(),result.body()!!.data.standings )
                 }
             }
         }
