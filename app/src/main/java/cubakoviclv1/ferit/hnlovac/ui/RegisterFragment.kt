@@ -1,4 +1,4 @@
-package cubakoviclv1.ferit.hnlovac.db
+package cubakoviclv1.ferit.hnlovac.ui
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -11,20 +11,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.auth.User
 import cubakoviclv1.ferit.hnlovac.R
-import cubakoviclv1.ferit.hnlovac.databinding.ActivityMainBinding
-import cubakoviclv1.ferit.hnlovac.ui.ProfileFragment
-import io.grpc.Metadata
 import java.util.*
 import cubakoviclv1.ferit.hnlovac.db.UserData as UserData
-import kotlin.collections.Map as Map1
 
 
 class RegisterFragment: Fragment() {

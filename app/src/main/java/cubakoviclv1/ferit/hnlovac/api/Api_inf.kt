@@ -6,9 +6,10 @@ object Api_inf {
 
     val BASE_URL = "https://app.sportdataapi.com/"
 
-
     val SEASON_ID = "1987"
 
     val COUNTRY_ID = "35"
+
+    val DATE_FROM = "2021-06-06"
 
 }

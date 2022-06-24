@@ -1,4 +1,4 @@
-package cubakoviclv1.ferit.hnlovac.db
+package cubakoviclv1.ferit.hnlovac.ui
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -13,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import cubakoviclv1.ferit.hnlovac.R
-import cubakoviclv1.ferit.hnlovac.ui.ProfileFragment
 
 
 class LogInFragment : Fragment() {
@@ -51,7 +50,7 @@ class LogInFragment : Fragment() {
         fun login() {
             btn_login.setOnClickListener {
                 if (TextUtils.isEmpty(et_email.text.toString())) {
-                    et_email.setError("Molimo vas unesite vaš email!!")
+                    et_email.setError("Molimo vas unesite vaš email!")
                     return@setOnClickListener
                 } else if (TextUtils.isEmpty(et_password.text.toString())) {
                     et_password.setError("Molimo vas unesite vašu lozinku!")

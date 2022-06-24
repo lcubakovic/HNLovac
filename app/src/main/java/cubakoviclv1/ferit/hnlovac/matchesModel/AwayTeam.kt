@@ -1,6 +1,6 @@
-package cubakoviclv1.ferit.hnlovac.model
+package cubakoviclv1.ferit.hnlovac.matchesModel
 
-data class DataX(
+data class AwayTeam(
     val common_name: String,
     val country: Country,
     val logo: String,

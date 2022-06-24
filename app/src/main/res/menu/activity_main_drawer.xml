@@ -25,6 +25,12 @@
             android:title="@string/standings"
             />
 
+            <item
+                android:id="@+id/navScorers"
+                android:icon="@drawable/ic_baseline_person_24"
+                android:title="@string/najbolji_strijelci"
+                />
+
         </menu>
 
     </item>
@@ -42,7 +48,7 @@
                 <item
                     android:id="@+id/nav_activity"
                     android:icon="@drawable/ic_baseline_account_circle_24"
-                    android:title="@string/activity"
+                    android:title="@string/odaberi_klub"
                     android:visible="false"
                     />
 

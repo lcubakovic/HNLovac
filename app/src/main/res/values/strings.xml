@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="live">UŽIVO</string>
-    <string name="fixtures">RASPORED</string>
+    <string name="fixtures">REZULTATI</string>
     <string name="standings">TABLICA</string>
     <string name="signin">REGISTRACIJA</string>
     <string name="nav_login">PRIJAVA</string>
@@ -12,7 +12,7 @@
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="welcome">Dobrodošli!</string>
-    <string name="login_acc">Logirajte se u vaš račun</string>
+    <string name="login_acc">Prijavite se u vaš račun</string>
     <string name="reg_acc">Registrirajte novi račun</string>
     <string name="firstname_acc">Unesite ime</string>
     <string name="lastname_acc">Unesite prezime</string>
@@ -28,4 +28,16 @@
     <string name="submit">PODNESI</string>
     <string name="oporavak">Ispod unesite email adresu za oporovak</string>
     <string name="options">OPCIJE</string>
+    <string name="najbolji_strijelci">STRIJELCI</string>
+    <string name="golovi">Golovi</string>
+    <string name="nastupi">Nastupi</string>
+    <string name="hnk_hajduk">HNK Hajduk</string>
+    <string name="marko_livaja">Marko Livaja</string>
+    <string name="gnk_dinamo_zagreb">GNK Dinamo Zagreb</string>
+    <string name="dinamo">Dinamo</string>
+    <string name="odaberi_klub">ODABERI KLUB</string>
+    <string name="odaberite_omiljeni_tim">Odaberite omiljeni tim</string>
+    <string name="odaberite_omiljeni_klub">Odaberite omiljeni klub</string>
+    <string name="upi_ite_najbolju_postavu_sezone">Upišite najbolju postavu sezone za klub</string>
+
 </resources>

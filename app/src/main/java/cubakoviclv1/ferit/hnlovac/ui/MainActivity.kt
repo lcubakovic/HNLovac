@@ -2,24 +2,14 @@ package cubakoviclv1.ferit.hnlovac.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.lifecycleScope
 import com.google.android.material.navigation.NavigationView
 import cubakoviclv1.ferit.hnlovac.R
-import cubakoviclv1.ferit.hnlovac.StandingsAdapter
-import cubakoviclv1.ferit.hnlovac.db.LogInFragment
-import cubakoviclv1.ferit.hnlovac.api.ApiInterface
-import cubakoviclv1.ferit.hnlovac.api.ApiUtilites
-import cubakoviclv1.ferit.hnlovac.api.Api_inf
 import cubakoviclv1.ferit.hnlovac.databinding.ActivityMainBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         drawerLayout = findViewById(R.id.drawerLayout)
         navView = findViewById(R.id.navView)
@@ -56,6 +45,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_login -> replaceFragment(LogInFragment(), it.title.toString())
                 R.id.nav_activity -> replaceFragment(ActivityFragment(), it.title.toString())
                 R.id.nav_logout -> replaceFragment(LogInFragment(), it.title.toString())
+                R.id.navScorers -> replaceFragment(TopScorersFragment(), it.title.toString())
+
             }
             true
         }

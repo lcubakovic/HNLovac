@@ -1,4 +1,4 @@
-package cubakoviclv1.ferit.hnlovac.model
+package cubakoviclv1.ferit.hnlovac.standingsModel
 
 data class QueryX(
     val apikey: String,

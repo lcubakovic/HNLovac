@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/hnlovac"
         android:textSize="50sp"
-        android:textColor="@color/login_green"
+        android:textColor="@color/colorAccent"
         android:textAlignment="center"
         />
 

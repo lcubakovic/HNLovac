@@ -1,12 +1,9 @@
 package cubakoviclv1.ferit.hnlovac.ui
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.text.Editable
-import android.util.Log
 import android.view.*
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -15,10 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.auth.User
 import cubakoviclv1.ferit.hnlovac.R
-import cubakoviclv1.ferit.hnlovac.db.LogInFragment
-import cubakoviclv1.ferit.hnlovac.db.UserData
 
 class ProfileFragment : Fragment() {
 

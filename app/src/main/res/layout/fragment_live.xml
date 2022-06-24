@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/country_content_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LiveFragment">
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinator"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView_live"
+        tools:listitem="@layout/item_match"
+        />
+</LinearLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</FrameLayout>
+

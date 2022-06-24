@@ -1,4 +1,4 @@
-package cubakoviclv1.ferit.hnlovac.db
+package cubakoviclv1.ferit.hnlovac.ui
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -7,9 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
-import androidx.core.text.trimmedLength
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -29,6 +30,7 @@ class ForgottenPasswordFragment: Fragment() {
         var database: FirebaseDatabase? = null
         val btn_submit = v.findViewById<Button>(R.id.btn_submit)
         val et_forgot_email = v.findViewById<EditText>(R.id.et_forgot_email)
+        val tv_back = v.findViewById<TextView>(R.id.tv_back)
 
         btn_submit.setOnClickListener {
             val email: String = et_forgot_email.text.toString()
@@ -46,6 +48,15 @@ class ForgottenPasswordFragment: Fragment() {
                         }
             }
         }
+
+        tv_back.setOnClickListener() {
+            val logInFragment = LogInFragment()
+            val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_layout, LogInFragment())
+            transaction.commit()
+        }
+
+
         return v
     }
 }
