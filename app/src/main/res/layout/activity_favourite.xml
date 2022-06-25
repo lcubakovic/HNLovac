@@ -99,6 +99,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
+            android:inputType="text"
             />
 
 
@@ -118,6 +119,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
+            android:inputType="text"
             />
 
 
@@ -137,6 +139,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
+            android:inputType="text"
             />
 
 
@@ -154,7 +157,9 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_cb" />
+            app:layout_constraintTop_toBottomOf="@+id/et_cb"
+            android:inputType="text"
+            />
 
 
 
@@ -172,7 +177,9 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_cb2" />
+            app:layout_constraintTop_toBottomOf="@+id/et_cb2"
+            android:inputType="text"
+            />
 
 
 
@@ -190,7 +197,9 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_rb" />
+            app:layout_constraintTop_toBottomOf="@+id/et_rb"
+            android:inputType="text"
+            />
 
 
 
@@ -209,7 +218,9 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_cm" />
+            app:layout_constraintTop_toBottomOf="@+id/et_cm"
+            android:inputType="text"
+            />
 
 
 
@@ -228,7 +239,9 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_cm2" />
+            app:layout_constraintTop_toBottomOf="@+id/et_cm2"
+            android:inputType="text"
+            />
 
 
 
@@ -247,7 +260,9 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_cm3" />
+            app:layout_constraintTop_toBottomOf="@+id/et_cm3"
+            android:inputType="text"
+            />
 
 
         <EditText
@@ -264,7 +279,9 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_lw" />
+            app:layout_constraintTop_toBottomOf="@+id/et_lw"
+            android:inputType="text"
+            />
 
 
         <EditText
@@ -281,7 +298,9 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_rw" />
+            app:layout_constraintTop_toBottomOf="@+id/et_rw"
+            android:inputType="text"
+            />
 
 
         <Button
