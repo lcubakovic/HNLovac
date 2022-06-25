@@ -8,7 +8,6 @@
     android:layout_height="wrap_content"
     android:layoutDirection="inherit"
     android:orientation="vertical"
-    app:cardBackgroundColor="@color/cardview_shadow_end_color"
     >
 
     <com.loopeer.shadow.ShadowView
@@ -19,8 +18,8 @@
         android:elevation="10dp"
         android:padding="10dp"
         app:cornerRadius="15dp"
-        app:shadowMargin="20dp"
-        app:shadowRadius="20dp"
+        app:shadowMargin="10dp"
+        app:shadowRadius="50dp"
         app:backgroundColor="@color/white"
         >
 
