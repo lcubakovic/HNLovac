@@ -18,7 +18,7 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import cubakoviclv1.ferit.hnlovac.R
 import java.util.*
-import cubakoviclv1.ferit.hnlovac.db.UserData as UserData
+import cubakoviclv1.ferit.hnlovac.data_classes.UserData as UserData
 
 
 class RegisterFragment: Fragment() {

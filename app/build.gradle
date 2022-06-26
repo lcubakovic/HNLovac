@@ -93,7 +93,7 @@ dependencies {
     //ThreeTenAPB
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
 
-    //preference manager
+    //Preference manager
     implementation "androidx.preference:preference-ktx:1.1.1"
 
     //Gson

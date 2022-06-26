@@ -1,9 +1,7 @@
 package cubakoviclv1.ferit.hnlovac.ui
 
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.text.TextUtils
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -11,10 +9,8 @@ import com.google.firebase.database.*
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import cubakoviclv1.ferit.hnlovac.databinding.ActivityFavouriteBinding
-import cubakoviclv1.ferit.hnlovac.db.FavouriteLineup
-import cubakoviclv1.ferit.hnlovac.db.UserData
+import cubakoviclv1.ferit.hnlovac.data_classes.FavouriteLineup
 import kotlinx.android.synthetic.main.activity_favourite.*
-import java.lang.StringBuilder
 import java.util.HashMap
 
 class FavouriteActivity: AppCompatActivity() {
