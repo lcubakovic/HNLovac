@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import cubakoviclv1.ferit.hnlovac.R
 import cubakoviclv1.ferit.hnlovac.adapters.LiveAdapter
 import cubakoviclv1.ferit.hnlovac.api.ApiInterface
@@ -54,7 +55,16 @@ class LiveFragment : Fragment() {
             }
         }
 
+        refrehsApp()
+
         return binding.root
+    }
+
+    private fun refrehsApp() {
+        val swipeRefreshLayout:SwipeRefreshLayout = binding.root.findViewById(R.id.swipe_refresh_layout)
+        swipeRefreshLayout.setOnRefreshListener{
+            swipeRefreshLayout.isRefreshing = false
+        }
     }
 
 

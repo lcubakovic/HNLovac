@@ -8,6 +8,10 @@
     android:background="@color/white"
     android:orientation="vertical"
     >
+ <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+     android:id="@+id/swipe_refresh_layout"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
@@ -15,6 +19,8 @@
         android:id="@+id/recyclerView_live"
         tools:listitem="@layout/item_match"
         />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>
 
 

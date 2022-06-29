@@ -40,8 +40,8 @@ class FavouriteActivity: AppCompatActivity() {
 
             if (name == "GNK Dinamo Zagreb") {
                 btn_setData.setOnClickListener {
-                        val currentUser = auth.currentUser
-                        val currentUserDb = databaseReference?.child(currentUser?.uid!!)
+                    val currentUser = auth.currentUser
+                    val currentUserDb = databaseReference?.child(currentUser?.uid!!)
 
                     if (TextUtils.isEmpty(et_gk.text.toString())) {
                         et_gk.setError("Molimo vas unesite ime/prezime golmana!")
@@ -115,7 +115,7 @@ class FavouriteActivity: AppCompatActivity() {
                         documentReference.set(postava)
 
                         Toast.makeText(this, "Podaci su poslani, hvala!", Toast.LENGTH_LONG).show()
-                        }
+                    }
 
                 }
             }
