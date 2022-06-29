@@ -40,4 +40,43 @@
     <string name="odaberite_omiljeni_klub">Odaberite omiljeni klub</string>
     <string name="upi_ite_najbolju_postavu_sezone">Upišite najbolju postavu sezone za klub</string>
 
+    <string-array name="rounds">
+        <item>Kolo 1</item>
+        <item>Kolo 2</item>
+        <item>Kolo 3</item>
+        <item>Kolo 4</item>
+        <item>Kolo 5</item>
+        <item>Kolo 6</item>
+        <item>Kolo 7</item>
+        <item>Kolo 8</item>
+        <item>Kolo 9</item>
+        <item>Kolo 10</item>
+        <item>Kolo 11</item>
+        <item>Kolo 12</item>
+        <item>Kolo 13</item>
+        <item>Kolo 14</item>
+        <item>Kolo 15</item>
+        <item>Kolo 16</item>
+        <item>Kolo 17</item>
+        <item>Kolo 18</item>
+        <item>Kolo 19</item>
+        <item>Kolo 20</item>
+        <item>Kolo 21</item>
+        <item>Kolo 22</item>
+        <item>Kolo 23</item>
+        <item>Kolo 24</item>
+        <item>Kolo 25</item>
+        <item>Kolo 26</item>
+        <item>Kolo 27</item>
+        <item>Kolo 28</item>
+        <item>Kolo 29</item>
+        <item>Kolo 30</item>
+        <item>Kolo 31</item>
+        <item>Kolo 32</item>
+        <item>Kolo 33</item>
+        <item>Kolo 34</item>
+        <item>Kolo 35</item>
+        <item>Kolo 36</item>
+    </string-array>
+
 </resources>

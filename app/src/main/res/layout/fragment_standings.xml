@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="none"
+    android:layout_weight="1">
 <TableLayout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -7,9 +13,12 @@
     android:layout_marginTop="10dp"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
+    android:scrollbars="horizontal"
     >
 
-    <TableRow android:background="@color/colorAccent" android:padding="10dp">
+    <TableRow android:background="@color/colorAccent" android:padding="10dp"
+        android:scrollbars="horizontal"
+        >
 
         <TextView
             android:textSize="18sp"
@@ -19,14 +28,15 @@
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:text="Klub"
-            android:textAlignment="textEnd"
-            android:gravity="end"
+            android:textAlignment="center"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:layout_marginEnd="200dp"
+            />
 
         <TextView
             android:textSize="18sp"
@@ -34,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
             android:text="Odigr"
+            android:layout_marginEnd="10dp"
             android:textColor="@color/white"
             android:layout_gravity="center"/>
 
@@ -43,6 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
             android:text="Pob"
+            android:layout_marginEnd="10dp"
+
             android:textColor="@color/white"
             android:layout_gravity="center"/>
         <TextView
@@ -51,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
             android:text="Ner"
+            android:layout_marginEnd="10dp"
             android:textColor="@color/white"
             android:layout_gravity="center"/>
         <TextView
@@ -59,6 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
             android:text="Por"
+            android:layout_marginEnd="10dp"
             android:textColor="@color/white"
             android:layout_gravity="center"/>
         <TextView
@@ -67,6 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
             android:text="Bod"
+            android:layout_marginEnd="10dp"
             android:textColor="@color/white"
             android:layout_gravity="center"/>
     </TableRow>
@@ -88,3 +104,4 @@
         </HorizontalScrollView>
 
 </TableLayout>
+</HorizontalScrollView>

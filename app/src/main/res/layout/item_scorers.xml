@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="30dp"
+    android:layout_height="35dp"
     android:paddingLeft="5dp"
     android:paddingRight="5dp">
     <TableRow android:background="@color/white" android:padding="5dp">
         <LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:text="1"
                 android:id="@+id/player_position"
                 android:textStyle="bold"
                 android:visibility="visible"
                 android:textSize="18sp"
+                android:textAlignment="center"
                 />
         </LinearLayout>
 
@@ -28,8 +29,8 @@
                 android:text="@string/marko_livaja"
                 android:textStyle="bold"
                 android:visibility="visible"
-                android:layout_marginEnd="80dp"
-                android:textSize="16sp"
+                android:layout_marginEnd="40dp"
+                android:textSize="18sp"
                 />
         </LinearLayout>
         <LinearLayout>
@@ -38,12 +39,10 @@
                 android:layout_height="25dp"
                 android:layout_weight="0.1"
                 android:id="@+id/goals_scored"
-                android:layout_marginRight="15dp"
                 android:visibility="visible"
-                android:layout_gravity="right"
-                android:layout_marginEnd="50dp"
-                android:textSize="16sp"
-
+                android:layout_marginEnd="45dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
                 />
         </LinearLayout>
         <LinearLayout>
@@ -53,8 +52,8 @@
                 android:layout_weight="0.1"
                 android:id="@+id/matches_played"
                 android:visibility="visible"
-                android:layout_gravity="right"
-                android:textSize="16sp"
+                android:textSize="18sp"
+                android:textAlignment="center"
                 />
         </LinearLayout>
 
