@@ -60,6 +60,7 @@
     <string name="nadolaze_e_utakmice">Nadolazeće utakmice:</string>
     <string name="nadolaze_a_kola">RASPORED</string>
     <string name="unesite_broj_kola_datum_klub_itd">Unesite broj kola, datum, klub, itd.</string>
+    <string name="chat">CHAT</string>
 
     <string-array name="rounds">
         <item>Kolo 1</item>

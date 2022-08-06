@@ -11,7 +11,6 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import cubakoviclv1.ferit.hnlovac.R
 import cubakoviclv1.ferit.hnlovac.databinding.ActivityMainBinding
-import javax.security.auth.login.LoginException
 
 class MainActivity : AppCompatActivity() {
 
@@ -49,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                     auth.currentUser
                     replaceFragment(LogInFragment(), it.title.toString())
                 }
-                R.id.nav_activity -> replaceFragment(ActivityFragment(), it.title.toString())
+                R.id.nav_activity -> replaceFragment(ChatActivity(), it.title.toString())
                 R.id.nav_logout -> {
                     auth = FirebaseAuth.getInstance()
                     auth.signOut()
