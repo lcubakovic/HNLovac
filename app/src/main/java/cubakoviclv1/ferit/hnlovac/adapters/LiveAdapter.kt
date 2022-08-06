@@ -35,8 +35,6 @@ class LiveAdapter(val context: Context, val list: List<Event>): RecyclerView.Ada
     override fun onBindViewHolder(holder: LiveViewHolder, position: Int) {
 
         val item = list[position]
-        val llLayoutNoEvents = holder.binding.root.findViewById<LinearLayout>(R.id.llNoLiveEvents)
-
 
         if(item.tournament.name == "HNL") {
 
@@ -147,7 +145,7 @@ class LiveAdapter(val context: Context, val list: List<Event>): RecyclerView.Ada
             holder.binding.tvHomeTeamScore.text = item.homeScore.current.toString()
             holder.binding.tvAwayTeamScore.text = item.awayScore.current.toString()
             holder.binding.tvMatchStatus.text = status
-            //holder.binding.tvRound.text ="KOLO: " + item.roundInfo.round.toString()
+            holder.binding.tvRound.text ="KOLO: " + item.roundInfo.round.toString()
             holder.binding.tvDate.text = date
             //holder.binding.tvCurrentTime.text = currentTime + "'"
             holder.binding.tvCurrentHalf.text = half

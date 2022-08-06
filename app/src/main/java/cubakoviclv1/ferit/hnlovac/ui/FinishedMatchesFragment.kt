@@ -16,6 +16,7 @@ import cubakoviclv1.ferit.hnlovac.adapters.*
 import cubakoviclv1.ferit.hnlovac.api.ApiInterface
 import cubakoviclv1.ferit.hnlovac.api.ApiUtilites
 import cubakoviclv1.ferit.hnlovac.databinding.FragmentFixturesBinding
+import cubakoviclv1.ferit.hnlovac.models.matchesModel.nextRounds.Event
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -24,26 +25,8 @@ import kotlinx.coroutines.withContext
 class FinishedMatchesFragment : Fragment(){
     private lateinit var recyclerView_fixtures: RecyclerView
     private lateinit var binding: FragmentFixturesBinding
-    private lateinit var adapter: Round1Adapter
-    private lateinit var adapter2: Round2Adapter
-    private lateinit var adapter3: Round3Adapter
-    private lateinit var adapter4: Round4_9_Adapter
-    private lateinit var adapter5: FinishedMatchesAdapter
-    private lateinit var adapter10_16: Round10_16_Adapter
-    private lateinit var adapter16_22: Round16_22_Adapter
-    private lateinit var adapter22_28: Round22_28_Adapter
-    private lateinit var adapter28_34: Round28_34_Adapter
-    private lateinit var adapter34_36: Round34_36_Adapter
-    private lateinit var matchesList: List<cubakoviclv1.ferit.hnlovac.models.matchesModel.round1.Event>
-    private lateinit var matchesList2: List<cubakoviclv1.ferit.hnlovac.models.matchesModel.round2.Event>
-    private lateinit var matchesList3: List<cubakoviclv1.ferit.hnlovac.models.matchesModel.round3.Event>
-    private lateinit var matchesList4: List<cubakoviclv1.ferit.hnlovac.models.matchesModel.round4_9.Event>
-    private lateinit var matchesList5: List<cubakoviclv1.ferit.hnlovac.models.matchesModel.round4_9.Event>
-    private lateinit var matchesList10: List<cubakoviclv1.ferit.hnlovac.models.matchesModel.round10_16.Event>
-    private lateinit var matchesList16: List<cubakoviclv1.ferit.hnlovac.models.matchesModel.round16_22.Event>
-    private lateinit var matchesList22: List<cubakoviclv1.ferit.hnlovac.models.matchesModel.round22_28.Event>
-    private lateinit var matchesList28: List<cubakoviclv1.ferit.hnlovac.models.matchesModel.round28_34.Event>
-    private lateinit var matchesList34: List<cubakoviclv1.ferit.hnlovac.models.matchesModel.round34_36.Event>
+    private lateinit var adapter: FinishedRoundsAdapter
+    private lateinit var finishedMatchesList: List<cubakoviclv1.ferit.hnlovac.models.matchesModel.finishedRounds.Event>
     private lateinit var spinner: Spinner
 
     override fun onCreateView(
@@ -54,35 +37,9 @@ class FinishedMatchesFragment : Fragment(){
 
         recyclerView_fixtures = binding.root.findViewById(R.id.recyclerView_fixtures)
         recyclerView_fixtures.setHasFixedSize(true)
-        matchesList = mutableListOf()
-        adapter = Round1Adapter(requireContext(), matchesList)
 
-        matchesList2 = mutableListOf()
-        adapter2 = Round2Adapter(requireContext(), matchesList2)
-
-        matchesList3 = mutableListOf()
-        adapter3 = Round3Adapter(requireContext(), matchesList3)
-
-        matchesList4 = mutableListOf()
-        adapter4 = Round4_9_Adapter(requireContext(), matchesList4)
-
-        matchesList5 = mutableListOf()
-        adapter5 = FinishedMatchesAdapter(requireContext(), matchesList5)
-
-        matchesList10 = mutableListOf()
-        adapter10_16 = Round10_16_Adapter(requireContext(), matchesList10)
-
-        matchesList16= mutableListOf()
-        adapter16_22 = Round16_22_Adapter(requireContext(), matchesList16)
-
-        matchesList22 = mutableListOf()
-        adapter22_28 = Round22_28_Adapter(requireContext(), matchesList22)
-
-        matchesList28 = mutableListOf()
-        adapter28_34 = Round28_34_Adapter(requireContext(), matchesList28)
-
-        matchesList34 = mutableListOf()
-        adapter34_36 = Round34_36_Adapter(requireContext(), matchesList34)
+        finishedMatchesList = mutableListOf()
+        adapter = FinishedRoundsAdapter(requireContext(), finishedMatchesList)
 
         spinner = binding.root.findViewById(R.id.spinner_kola)
 
@@ -99,7 +56,7 @@ class FinishedMatchesFragment : Fragment(){
                     Log.d("matches", "onCreate: ${matches.body()!!.events}")
 
                     withContext(Dispatchers.Main) {
-                        binding.recyclerViewFixtures.adapter = Round1Adapter(
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
                                 requireActivity(),
                                 matches.body()!!.events
                         )
@@ -118,7 +75,7 @@ class FinishedMatchesFragment : Fragment(){
                     Log.d("matches", "onCreate: ${matches.body()!!.events}")
 
                     withContext(Dispatchers.Main) {
-                        binding.recyclerViewFixtures.adapter = Round2Adapter(
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
                                 requireActivity(),
                                 matches.body()!!.events
                         )
@@ -137,26 +94,7 @@ class FinishedMatchesFragment : Fragment(){
                     Log.d("matches", "onCreate: ${matches.body()!!.events}")
 
                     withContext(Dispatchers.Main) {
-                        binding.recyclerViewFixtures.adapter = Round3Adapter(
-                                requireActivity(),
-                                matches.body()!!.events
-                        )
-                    }
-                }
-            }
-        }
-
-        fun getData4_round(){
-            lifecycleScope.launch(Dispatchers.IO) {
-
-                val matches = matchesApi.getMatches4_9(
-                )
-
-                if (matches.body() != null) {
-                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
-
-                    withContext(Dispatchers.Main) {
-                        binding.recyclerViewFixtures.adapter = FinishedMatchesAdapter(
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
                                 requireActivity(),
                                 matches.body()!!.events
                         )
@@ -168,14 +106,110 @@ class FinishedMatchesFragment : Fragment(){
         fun getData4(){
             lifecycleScope.launch(Dispatchers.IO) {
 
-                val matches = matchesApi.getMatches4_9(
+                val matches = matchesApi.getRound4(
                 )
 
                 if (matches.body() != null) {
                     Log.d("matches", "onCreate: ${matches.body()!!.events}")
 
                     withContext(Dispatchers.Main) {
-                        binding.recyclerViewFixtures.adapter = Round4_9_Adapter(
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+
+        fun getData5(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound5(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData6(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound6(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData7(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound7(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData8(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound8(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData9(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound9(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
                                 requireActivity(),
                                 matches.body()!!.events
                         )
@@ -187,14 +221,109 @@ class FinishedMatchesFragment : Fragment(){
         fun getData10(){
             lifecycleScope.launch(Dispatchers.IO) {
 
-                val matches = matchesApi.getMatches10_16(
+                val matches = matchesApi.getRound10(
                 )
 
                 if (matches.body() != null) {
                     Log.d("matches", "onCreate: ${matches.body()!!.events}")
 
                     withContext(Dispatchers.Main) {
-                        binding.recyclerViewFixtures.adapter = Round10_16_Adapter(
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+                fun getData11(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound11(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData12(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound12(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData13(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound13(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData14(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound14(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData15(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound15(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
                                 requireActivity(),
                                 matches.body()!!.events
                         )
@@ -206,14 +335,109 @@ class FinishedMatchesFragment : Fragment(){
         fun getData16(){
             lifecycleScope.launch(Dispatchers.IO) {
 
-                val matches = matchesApi.getMatches16_22(
+                val matches = matchesApi.getRound16(
                 )
 
                 if (matches.body() != null) {
                     Log.d("matches", "onCreate: ${matches.body()!!.events}")
 
                     withContext(Dispatchers.Main) {
-                        binding.recyclerViewFixtures.adapter = Round16_22_Adapter(
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData17(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound17(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData18(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound18(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData19(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound19(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData20(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound20(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData21(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound21(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
                                 requireActivity(),
                                 matches.body()!!.events
                         )
@@ -225,14 +449,109 @@ class FinishedMatchesFragment : Fragment(){
         fun getData22(){
             lifecycleScope.launch(Dispatchers.IO) {
 
-                val matches = matchesApi.getMatches22_28(
+                val matches = matchesApi.getRound22(
                 )
 
                 if (matches.body() != null) {
                     Log.d("matches", "onCreate: ${matches.body()!!.events}")
 
                     withContext(Dispatchers.Main) {
-                        binding.recyclerViewFixtures.adapter = Round22_28_Adapter(
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData23(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound23(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData24(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound24(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData25(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound25(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData26(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound26(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData27(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound27(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
                                 requireActivity(),
                                 matches.body()!!.events
                         )
@@ -244,14 +563,109 @@ class FinishedMatchesFragment : Fragment(){
         fun getData28(){
             lifecycleScope.launch(Dispatchers.IO) {
 
-                val matches = matchesApi.getMatches28_34(
+                val matches = matchesApi.getRound28(
                 )
 
                 if (matches.body() != null) {
                     Log.d("matches", "onCreate: ${matches.body()!!.events}")
 
                     withContext(Dispatchers.Main) {
-                        binding.recyclerViewFixtures.adapter = Round28_34_Adapter(
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData29(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound29(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData30(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound30(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData31(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound31(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData32(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound32(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData33(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound33(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
                                 requireActivity(),
                                 matches.body()!!.events
                         )
@@ -263,14 +677,52 @@ class FinishedMatchesFragment : Fragment(){
         fun getData34(){
             lifecycleScope.launch(Dispatchers.IO) {
 
-                val matches = matchesApi.getMatches34_36(
+                val matches = matchesApi.getRound34(
                 )
 
                 if (matches.body() != null) {
                     Log.d("matches", "onCreate: ${matches.body()!!.events}")
 
                     withContext(Dispatchers.Main) {
-                        binding.recyclerViewFixtures.adapter = Round34_36_Adapter(
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData35(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound35(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
+                                requireActivity(),
+                                matches.body()!!.events
+                        )
+                    }
+                }
+            }
+        }
+
+        fun getData36(){
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                val matches = matchesApi.getRound36(
+                )
+
+                if (matches.body() != null) {
+                    Log.d("matches", "onCreate: ${matches.body()!!.events}")
+
+                    withContext(Dispatchers.Main) {
+                        binding.recyclerViewFixtures.adapter = FinishedRoundsAdapter(
                                 requireActivity(),
                                 matches.body()!!.events
                         )
@@ -280,15 +732,6 @@ class FinishedMatchesFragment : Fragment(){
         }
 
 
-        recyclerView_fixtures.adapter = adapter34_36
-        recyclerView_fixtures.adapter = adapter28_34
-        recyclerView_fixtures.adapter = adapter22_28
-        recyclerView_fixtures.adapter = adapter16_22
-        recyclerView_fixtures.adapter = adapter10_16
-        recyclerView_fixtures.adapter = adapter5
-        recyclerView_fixtures.adapter = adapter4
-        recyclerView_fixtures.adapter = adapter3
-        recyclerView_fixtures.adapter = adapter2
         recyclerView_fixtures.adapter = adapter
         recyclerView_fixtures.layoutManager = LinearLayoutManager(requireContext())
 
@@ -308,22 +751,103 @@ class FinishedMatchesFragment : Fragment(){
                     getData4()
                 }
                 else if(position == 4) {
-                    getData10()
+                    getData5()
                 }
                 else if(position == 5) {
-                    getData16()
+                    getData6()
                 }
                 else if(position == 6) {
-                    getData22()
+                    getData7()
                 }
                 else if(position == 7) {
-                    getData28()
+                    getData8()
                 }
                 else if(position == 8) {
-                    getData34()
-                } else if(position == 9) {
-                    getData4_round()
+                    getData9()
                 }
+                else if(position == 9) {
+                    getData10()
+                }
+                else if(position == 10) {
+                    getData11()
+                }
+                else if(position == 11) {
+                    getData12()
+                }
+                else if(position == 12) {
+                    getData13()
+                }
+                else if(position == 13) {
+                    getData14()
+                }
+                else if(position == 14) {
+                    getData15()
+                }
+                else if(position == 15) {
+                    getData16()
+                }
+                else if(position == 16) {
+                    getData17()
+                }
+                else if(position == 17) {
+                    getData18()
+                }
+                else if(position == 18) {
+                    getData19()
+                }
+                else if(position == 19) {
+                    getData20()
+                }
+                else if(position == 20) {
+                    getData21()
+                }
+                else if(position == 21) {
+                    getData22()
+                }
+                else if(position == 22) {
+                    getData23()
+                }
+                else if(position == 23) {
+                    getData24()
+                }
+                else if(position == 24) {
+                    getData25()
+                }
+                else if(position == 25) {
+                    getData26()
+                }
+                else if(position == 26) {
+                    getData27()
+                }
+                else if(position == 27) {
+                    getData28()
+                }
+                else if(position == 28) {
+                    getData29()
+                }
+                else if(position == 29) {
+                    getData30()
+                }
+                else if(position == 30) {
+                    getData31()
+                }
+                else if(position == 31) {
+                    getData32()
+                }
+                else if(position == 32) {
+                    getData33()
+                }
+                else if(position == 33) {
+                    getData34()
+                }
+                else if(position == 34) {
+                    getData35()
+                }
+                else if(position == 35) {
+                    getData36()
+                }
+
+
 
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
