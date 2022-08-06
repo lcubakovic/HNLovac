@@ -8,8 +8,10 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import cubakoviclv1.ferit.hnlovac.R
 import cubakoviclv1.ferit.hnlovac.databinding.ActivityMainBinding
+import javax.security.auth.login.LoginException
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navView : NavigationView
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: ActivityMainBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,21 +35,29 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val logInFragment = LogInFragment()
         val fm: FragmentManager = supportFragmentManager
-        fm.beginTransaction().add(R.id.frame_layout, LogInFragment()).commit()
+        fm.beginTransaction().add(R.id.frame_layout, LiveFragment()).commit()
 
 
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navHome -> replaceFragment(LiveFragment(), it.title.toString())
-                R.id.navFixtures -> replaceFragment(FixturesFragment(), it.title.toString())
+                R.id.navFixtures -> replaceFragment(FinishedMatchesFragment(), it.title.toString())
                 R.id.navStandings -> replaceFragment(StandingsFragment(), it.title.toString())
-                R.id.nav_login -> replaceFragment(LogInFragment(), it.title.toString())
+                R.id.nav_login -> {
+                    auth = FirebaseAuth.getInstance()
+                    auth.currentUser
+                    replaceFragment(LogInFragment(), it.title.toString())
+                }
                 R.id.nav_activity -> replaceFragment(ActivityFragment(), it.title.toString())
-                R.id.nav_logout -> replaceFragment(LogInFragment(), it.title.toString())
+                R.id.nav_logout -> {
+                    auth = FirebaseAuth.getInstance()
+                    auth.signOut()
+                    replaceFragment(LogInFragment(), it.title.toString())
+                }
                 R.id.navScorers -> replaceFragment(TopScorersFragment(), it.title.toString())
-
+                R.id.navNews -> replaceFragment(HNL_NewsFragment(), it.title.toString())
+                R.id.navSchedule -> replaceFragment(ScheduleFragment(), it.title.toString())
             }
             true
         }
@@ -66,6 +77,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
+            auth = FirebaseAuth.getInstance()
+            val currentUser = auth.currentUser
+            if(currentUser == null) {
+                navView.menu.findItem(R.id.nav_login).setVisible(true)
+                navView.menu.findItem(R.id.nav_logout).setVisible(false)
+                navView.menu.findItem(R.id.nav_activity).setVisible(false)
+            } else {
+                navView.menu.findItem(R.id.nav_login).setVisible(false)
+                navView.menu.findItem(R.id.nav_logout).setVisible(true)
+                navView.menu.findItem(R.id.nav_activity).setVisible(true)
+            }
             return true
         }
         return super.onOptionsItemSelected(item)

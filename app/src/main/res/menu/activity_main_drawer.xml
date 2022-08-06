@@ -19,6 +19,18 @@
             android:title="@string/fixtures"
             />
 
+            <item
+                android:id="@+id/navSchedule"
+                android:icon="@drawable/ic_baseline_event_24"
+                android:title="@string/nadolaze_a_kola"
+                />
+
+            <item
+                android:id="@+id/navNews"
+                android:icon="@drawable/ic_baseline_info_24"
+                android:title="@string/raspored"
+                />
+
         <item
             android:id="@+id/navStandings"
             android:icon="@drawable/ic_baseline_table_rows_24"
@@ -28,7 +40,7 @@
             <item
                 android:id="@+id/navScorers"
                 android:icon="@drawable/ic_baseline_person_24"
-                android:title="@string/najbolji_strijelci"
+                android:title="@string/statistika_igrača"
                 />
 
         </menu>

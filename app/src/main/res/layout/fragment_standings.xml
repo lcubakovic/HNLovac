@@ -11,8 +11,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="10dp"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     android:scrollbars="horizontal"
     >
 
@@ -76,6 +76,17 @@
             android:layout_marginEnd="10dp"
             android:textColor="@color/white"
             android:layout_gravity="center"/>
+
+        <TextView
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="G+/-"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"/>
+
         <TextView
             android:textSize="18sp"
             android:layout_width="wrap_content"

@@ -16,16 +16,16 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import androidx.recyclerview.widget.RecyclerView
 import cubakoviclv1.ferit.hnlovac.StandingsAdapter
-import cubakoviclv1.ferit.hnlovac.api.Api_inf
 import cubakoviclv1.ferit.hnlovac.databinding.FragmentStandingsBinding
-import cubakoviclv1.ferit.hnlovac.standingsModel.Standing
+import cubakoviclv1.ferit.hnlovac.models.standingsModel.Item
+
 
 
 class StandingsFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var binding: FragmentStandingsBinding
     private lateinit var adapter: StandingsAdapter
-    private lateinit var standingList: List<Standing>
+    private lateinit var standingList: List<Item>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,13 +45,13 @@ class StandingsFragment : Fragment() {
 
         lifecycleScope.launch (Dispatchers.IO) {
 
-            val result = standingsApi.getStandings(Api_inf.API_KEY, Api_inf.SEASON_ID)
+            val result = standingsApi.getStandings()
 
             if (result.body() != null) {
-                Log.d("stand", "onCreate: ${result.body()!!.data.standings}" )
+                Log.d("stand", "onCreate: ${result.body()!!.Items}" )
 
                 withContext(Dispatchers.Main) {
-                    binding.recyclerView.adapter = StandingsAdapter(requireActivity(), result.body()!!.data.standings)
+                    binding.recyclerView.adapter = StandingsAdapter(requireActivity(), result.body()!!.Items)
                 }
             }
         }

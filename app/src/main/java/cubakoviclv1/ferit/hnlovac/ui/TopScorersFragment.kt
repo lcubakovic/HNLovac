@@ -13,8 +13,8 @@ import cubakoviclv1.ferit.hnlovac.R
 import cubakoviclv1.ferit.hnlovac.TopScorersAdapter
 import cubakoviclv1.ferit.hnlovac.api.ApiInterface
 import cubakoviclv1.ferit.hnlovac.api.ApiUtilites
-import cubakoviclv1.ferit.hnlovac.api.Api_inf
 import cubakoviclv1.ferit.hnlovac.databinding.FragmentScorersBinding
+import cubakoviclv1.ferit.hnlovac.models.topScorersModel.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -23,7 +23,7 @@ class TopScorersFragment: Fragment() {
     private lateinit var recyclerView_topScorers: RecyclerView
     private lateinit var binding: FragmentScorersBinding
     private lateinit var adapter: TopScorersAdapter
-    private lateinit var scorersList: List<cubakoviclv1.ferit.hnlovac.topScorersModel.Data>
+    private lateinit var scorersList: List<Result>
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -42,13 +42,13 @@ class TopScorersFragment: Fragment() {
 
         lifecycleScope.launch (Dispatchers.IO) {
 
-            val scorers = scorersApi.getScorers(Api_inf.API_KEY, Api_inf.SEASON_ID)
+            val scorers = scorersApi.getPlayerStatistics()
 
             if (scorers.body() != null) {
-                Log.d("scorers", "onCreate: ${scorers.body()!!.data}" )
+                Log.d("scorers", "onCreate: ${scorers.body()!!.results}" )
 
                 withContext(Dispatchers.Main) {
-                    binding.recyclerViewTopScorers.adapter = TopScorersAdapter(requireActivity(),scorers.body()!!.data )
+                    binding.recyclerViewTopScorers.adapter = TopScorersAdapter(requireActivity(),scorers.body()!!.results)
                 }
             }
         }

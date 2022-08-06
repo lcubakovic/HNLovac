@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="?android:textColorPrimary"
             android:fontFamily="sans-serif"
             tools:text="KOLO 1" />
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="?android:textColorPrimary"
             android:fontFamily="sans-serif"
             tools:text="Tuesday, 14.06.2022." />
@@ -88,7 +88,7 @@
                     android:gravity="center|center_vertical"
                     android:maxLines="2"
                     android:text="GNK Dinamo Zagreb"
-                    android:textSize="14sp" />
+                    android:textSize="15sp" />
 
                 <View
                     android:layout_width="5dp"
@@ -103,7 +103,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="55dp"
                 android:layout_gravity="center"
                 android:layout_weight="0.1"
                 android:orientation="vertical">
@@ -162,8 +162,8 @@
                             android:layout_gravity="center"
                             android:fontFamily="sans-serif"
                             android:gravity="center"
-                            android:text="0"
-                            android:textSize="14sp" />
+                            android:text="-"
+                            android:textSize="18sp" />
 
                         <View
                             android:layout_width="1dp"
@@ -174,7 +174,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:text="|"
+                            android:text=" : "
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -190,8 +190,8 @@
                             android:layout_gravity="center"
                             android:fontFamily="sans-serif"
                             android:gravity="center"
-                            android:text="0"
-                            android:textSize="14sp" />
+                            android:text="-"
+                            android:textSize="18sp" />
 
                     </LinearLayout>
 
@@ -203,8 +203,9 @@
                         android:layout_weight="0.5"
                         android:gravity="center"
                         android:text="Not started"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
+                        android:textColor="@color/colorAccent"
                         />
                 </LinearLayout>
 
@@ -240,7 +241,7 @@
                     android:gravity="center|center_vertical"
                     android:maxLines="2"
                     android:text="HNK Hajduk Split"
-                    android:textSize="14sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </LinearLayout>
 

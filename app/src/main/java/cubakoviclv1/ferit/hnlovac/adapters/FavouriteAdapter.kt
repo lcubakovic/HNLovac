@@ -6,7 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import cubakoviclv1.ferit.hnlovac.R
-import cubakoviclv1.ferit.hnlovac.data_classes.Team
+import cubakoviclv1.ferit.hnlovac.data.Team
 
 class FavouriteAdapter(private val context: Activity, private val arrayList: List<Team>) : ArrayAdapter<Team>(context,
 R.layout.list_item, arrayList) {

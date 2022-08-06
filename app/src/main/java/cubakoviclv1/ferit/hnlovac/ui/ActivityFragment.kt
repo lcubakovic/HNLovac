@@ -13,7 +13,7 @@ import cubakoviclv1.ferit.hnlovac.databinding.FragmentActivityBinding
 class ActivityFragment: Fragment()  {
 
     private lateinit var binding: FragmentActivityBinding
-    private lateinit var teamList : ArrayList<cubakoviclv1.ferit.hnlovac.data_classes.Team>
+    private lateinit var teamList : ArrayList<cubakoviclv1.ferit.hnlovac.data.Team>
 
 
     override fun onCreateView(
@@ -41,7 +41,7 @@ class ActivityFragment: Fragment()  {
         teamList = ArrayList()
 
         for(i in name.indices) {
-            val teamName = cubakoviclv1.ferit.hnlovac.data_classes.Team(name[i], image[i])
+            val teamName = cubakoviclv1.ferit.hnlovac.data.Team(name[i], image[i])
             teamList.add(teamName)
         }
 

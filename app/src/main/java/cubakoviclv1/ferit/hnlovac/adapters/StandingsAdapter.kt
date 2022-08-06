@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cubakoviclv1.ferit.hnlovac.databinding.ItemTableBinding
-import cubakoviclv1.ferit.hnlovac.standingsModel.Standing
+import cubakoviclv1.ferit.hnlovac.models.standingsModel.Item
 
-class StandingsAdapter(val context: Context, val list: List<Standing>): RecyclerView.Adapter<StandingsAdapter.TableViewHolder>() {
+
+class StandingsAdapter(val context: Context, val list: List<Item>): RecyclerView.Adapter<StandingsAdapter.TableViewHolder>() {
 
     class TableViewHolder(view: View): RecyclerView.ViewHolder(view) {
         var binding = ItemTableBinding.bind(view)
@@ -22,62 +23,65 @@ class StandingsAdapter(val context: Context, val list: List<Standing>): Recycler
 
         val item = list[position]
 
-
-        if (item.team_id == 2047 ) {
+        if (item.Id == 131 ) {
             holder.binding.clubLogo.setImageResource(R.drawable.dinamo)
             holder.binding.clubName.text = "GNK Dinamo Zagreb"
         }
-        else if (item.team_id == 2053) {
+        else if (item.Id == 139) {
             holder.binding.clubName.text = "NK Osijek"
 
             holder.binding.clubLogo.setImageResource(R.drawable.osijek)
         }
-        else if (item.team_id == 2057) {
+        else if (item.Id == 134) {
             holder.binding.clubName.text = "HNK Hajduk Split"
             holder.binding.clubLogo.setImageResource(R.drawable.hajduk)
 
         }
-        else if (item.team_id == 2067) {
+        else if (item.Id == 138) {
             holder.binding.clubName.text = "HNK Rijeka"
             holder.binding.clubLogo.setImageResource(R.drawable.rijeka)
 
         }
-        else if (item.team_id == 2049) {
+        else if (item.Id == 140) {
             holder.binding.clubName.text = "NK Lokomotiva"
             holder.binding.clubLogo.setImageResource(R.drawable.lokomotiva)
 
         }
-        else if (item.team_id == 2074) {
+        else if (item.Id == 132) {
             holder.binding.clubName.text = "NK Gorica"
             holder.binding.clubLogo.setImageResource(R.drawable.gorica)
 
         }
-        else if (item.team_id == 2051) {
+        else if (item.Id == 137) {
             holder.binding.clubName.text = "NK Slaven Belupo"
             holder.binding.clubLogo.setImageResource(R.drawable.slaven)
 
         }
-        else if (item.team_id == 2065) {
+        else if (item.Id == 133) {
             holder.binding.clubName.text = "NK Istra 1961"
             holder.binding.clubLogo.setImageResource(R.drawable.istra)
 
         }
-        else if (item.team_id == 2055) {
+        else if (item.Id == 136) {
             holder.binding.clubName.text = "HNK Šibenik"
             holder.binding.clubLogo.setImageResource(R.drawable.sibenik)
 
         }
-        else if (item.team_id == 2098) {
-            holder.binding.clubName.text = "NK Hrvatski Dragovoljac"
-            holder.binding.clubLogo.setImageResource(R.drawable.dragovoljac)
+        else if (item.Id == 135) {
+            holder.binding.clubName.text = "NK Varaždin"
+            holder.binding.clubLogo.setImageResource(R.drawable.varazdin)
         }
 
-            holder.binding.position.text = item.position.toString()
-            holder.binding.gamesPlayed.text = item.overall.games_played.toString()
-            holder.binding.gamesVictory.text = item.overall.won.toString()
-            holder.binding.gamesDrawn.text = item.overall.draw.toString()
-            holder.binding.gamesLoss.text = item.overall.lost.toString()
-            holder.binding.points.text = item.points.toString()
+            val goalDifference = ((item.GoalsScored) - (item.GoalsConceded))
+
+            holder.binding.position.text = item.Rank.toString()
+            holder.binding.gamesPlayed.text = item.TotalMatches.toString()
+            holder.binding.gamesVictory.text = item.Won.toString()
+            holder.binding.gamesDrawn.text = item.Drew.toString()
+            holder.binding.gamesLoss.text = item.Lost.toString()
+            holder.binding.points.text = item.Points.toString()
+            holder.binding.goalDifference.text = goalDifference.toString()
+
 
     }
 

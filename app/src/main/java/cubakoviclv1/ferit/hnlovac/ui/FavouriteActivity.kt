@@ -9,7 +9,7 @@ import com.google.firebase.database.*
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import cubakoviclv1.ferit.hnlovac.databinding.ActivityFavouriteBinding
-import cubakoviclv1.ferit.hnlovac.data_classes.FavouriteLineup
+import cubakoviclv1.ferit.hnlovac.data.FavouriteLineup
 import kotlinx.android.synthetic.main.activity_favourite.*
 import java.util.HashMap
 

@@ -17,7 +17,7 @@
     <string name="firstname_acc">Unesite ime</string>
     <string name="lastname_acc">Unesite prezime</string>
     <string name="email_acc">Unesite vaš email</string>
-    <string name="password_acc">Unesite vašu lozinku</string>
+    <string name="password_acc">Unesite vašu zaporku</string>
     <string name="register_acc">Nemate korisnički račun? Registrirajte se!</string>
     <string name="alreadyHave_acc">Već imate korisnički račun? Logirajte se ovdje!</string>
     <string name="logged_in">Uspješno ste autentificirani kao:</string>
@@ -39,6 +39,27 @@
     <string name="odaberite_omiljeni_tim">Odaberite omiljeni tim</string>
     <string name="odaberite_omiljeni_klub">Odaberite omiljeni klub</string>
     <string name="upi_ite_najbolju_postavu_sezone">Upišite najbolju postavu sezone za klub</string>
+    <string name="driblinzi">Driblinzi</string>
+    <string name="ocjena">Ocjena</string>
+    <string name="statistika_igrača">STATISTIKA IGRAČA</string>
+    <string name="raspored">HNL VIJESTI</string>
+    <string name="udarci">Udarci</string>
+    <string name="proma_eni_ziceri">Promašeni ziceri</string>
+    <string name="realizirani_ziceri">Realizirani ziceri</string>
+    <string name="unesite_va_nadimak">Unesite vaš nadimak</string>
+    <string name="potvrdite_va_u_zaporku">Potvrdite vašu zaporku</string>
+    <string name="registracija">REGISTRACIJA</string>
+    <string name="prijava">Prijava</string>
+    <string name="verificiraj">verificiraj</string>
+    <string name="niste_dobili_kod_ponovno_po_alji">Niste dobili kod? Ponovno pošalji.</string>
+    <string name="molimo_unesite_verifikacijski_kod_poslan_na_va_u_e_mail_adresu">Molimo unesite verifikacijski kod poslan na vašu e-mail adresu</string>
+    <string name="nazad_na_prijavu">Nazad na prijavu</string>
+    <string name="broj_mobitela">BROJ MOBITELA</string>
+    <string name="google_prijava">GOOGLE PRIJAVA</string>
+    <string name="trenutno_nema_prijenosa_u_ivo">Trenutno nema utakmica uživo!</string>
+    <string name="nadolaze_e_utakmice">Nadolazeće utakmice:</string>
+    <string name="nadolaze_a_kola">RASPORED</string>
+    <string name="unesite_broj_kola_datum_klub_itd">Unesite broj kola, datum, klub, itd.</string>
 
     <string-array name="rounds">
         <item>Kolo 1</item>
@@ -77,6 +98,15 @@
         <item>Kolo 34</item>
         <item>Kolo 35</item>
         <item>Kolo 36</item>
+    </string-array>
+
+    <string-array name="schedule">
+        <item>Kolo 4-9</item>
+        <item>Kolo 10-15</item>
+        <item>Kolo 16-21</item>
+        <item>Kolo 22-27</item>
+        <item>Kolo 28-33</item>
+        <item>Kolo 34-36</item>
     </string-array>
 
 </resources>
